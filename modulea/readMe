@@ -1,0 +1,6 @@
+SPI
+ 接口 module_interface  , 实现 module_A
+  (1)在 A中实现 interface 中的接口
+  (2)在 A 的 main 目录下创建resources  META-INF/services 目录
+  (3在 MRTA-INF/servicesm 目录下创建以接口全名命名的文件
+  (4) 文件内容是实现类的全名
