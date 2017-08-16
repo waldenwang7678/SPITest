@@ -7,8 +7,17 @@
     tools:context="com.wangjt.spitest.MainActivity">
 
     <TextView
+        android:id="@+id/et_spi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
+
+    <Button
+        android:id="@+id/bt_spi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_centerInParent="true"
+        android:text="spi"
+        android:textAllCaps="false" />
 
 </RelativeLayout>
