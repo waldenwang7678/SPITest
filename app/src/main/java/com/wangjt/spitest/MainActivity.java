@@ -5,10 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.wangjt.aninterface.Display;
+import com.wangjt.modulea.ADisplay;
+import com.wangjt.moduleb.BDisplay;
 
-import java.util.Iterator;
-import java.util.ServiceLoader;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,15 +33,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadMoudle() {
         StringBuilder builder = new StringBuilder();
-        ServiceLoader<Display> loader = ServiceLoader.load(Display.class);
-        Iterator<Display> iterator = loader.iterator();
-        while (iterator.hasNext()) {
-            builder.append(iterator.next().display());
-        }
+        Router.getInstance().init();
+        HashMap map = Router.getInstance().getMap();
 
-        for (Display display : loader) {
-            builder.append(display.display()+"\n");
-        }
+        DisplayImp dispalyImp = (DisplayImp) map.get(DisplayImp.class.getName());
+        ADisplay aDisplay = (ADisplay) map.get(ADisplay.class.getName());
+        BDisplay bDisplay = (BDisplay) map.get(BDisplay.class.getName());
+
+        builder.append(dispalyImp.display() + "\n");
+        builder.append(aDisplay.display() + "\n");
+        builder.append(bDisplay.display() + "\n");
         et.setText(builder.toString());
+
     }
 }

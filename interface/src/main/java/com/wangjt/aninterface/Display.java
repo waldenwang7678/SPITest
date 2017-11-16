@@ -6,4 +6,5 @@ package com.wangjt.aninterface;
 
 public interface Display {
     String display();
+    String getClassName();
 }

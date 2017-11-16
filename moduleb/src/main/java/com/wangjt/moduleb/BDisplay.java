@@ -12,4 +12,10 @@ public class BDisplay implements Display {
     public String display() {
         return "this is miduleB display";
     }
+
+    @Override
+    public String getClassName() {
+        return BDisplay.class.getName();
+    }
+
 }
