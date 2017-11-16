@@ -6,11 +6,18 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.walden.common.Router;
+import com.wangjt.aninterface.Display;
 import com.wangjt.modulea.ADisplay;
 import com.wangjt.moduleb.BDisplay;
+import com.wangjt.moduleb.CDisplay;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
+/**
+ * @author wangjt
+ */
 public class MainActivity extends AppCompatActivity {
 
     private TextView et;
@@ -27,12 +34,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.bt_spi).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadMoudle();
+                loadModule();
             }
         });
     }
 
-    private void loadMoudle() {
+    private void loadModule() {
         StringBuilder builder = new StringBuilder();
 
         HashMap map = Router.getInstance().getMap();
@@ -40,10 +47,13 @@ public class MainActivity extends AppCompatActivity {
         DisplayImp dispalyImp = (DisplayImp) map.get(DisplayImp.class.getName());
         ADisplay aDisplay = (ADisplay) map.get(ADisplay.class.getName());
         BDisplay bDisplay = (BDisplay) map.get(BDisplay.class.getName());
+        CDisplay cDisplay = (CDisplay) map.get(CDisplay.class.getName());
 
-        builder.append(dispalyImp.display() + "\n");
-        builder.append(aDisplay.display() + "\n");
-        builder.append(bDisplay.display() + "\n");
+        Iterator iterator = map.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry next = (Map.Entry) iterator.next();
+            builder.append(((Display)next.getValue()).display()).append("\n");
+        }
         et.setText(builder.toString());
 
     }

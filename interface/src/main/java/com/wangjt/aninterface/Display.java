@@ -1,10 +1,23 @@
 package com.wangjt.aninterface;
 
-/**
- * Created by wangjt on 2017/8/15.
- */
 
-public interface Display {
-    String display();
-    String getClassName();
+/**
+ * @author wangjt
+ */
+public abstract class Display {
+    /**
+     * doSomething
+     *
+     * @return string
+     */
+    public abstract String display();
+
+    /**
+     * 返回类名
+     *
+     * @return str
+     */
+    String getClassName() {
+        return this.getClass().getName();
+    }
 }
