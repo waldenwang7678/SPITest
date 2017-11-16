@@ -2,6 +2,8 @@ package com.wangjt.spitest;
 
 import android.app.Application;
 
+import com.walden.common.Router;
+
 /**
  * @author wangjt
  * @date 2017/11/16

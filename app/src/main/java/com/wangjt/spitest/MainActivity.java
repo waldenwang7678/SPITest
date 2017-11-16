@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.walden.common.Router;
 import com.wangjt.modulea.ADisplay;
 import com.wangjt.moduleb.BDisplay;
 
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadMoudle() {
         StringBuilder builder = new StringBuilder();
-        Router.getInstance().init();
+
         HashMap map = Router.getInstance().getMap();
 
         DisplayImp dispalyImp = (DisplayImp) map.get(DisplayImp.class.getName());

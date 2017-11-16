@@ -1,7 +1,7 @@
-package com.wangjt.spitest;
+package com.walden.common;
 
 
-import android.view.Display;
+import com.wangjt.aninterface.Display;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -35,11 +35,6 @@ public class Router {
 
     public void init() {
         ServiceLoader<Display> loader = ServiceLoader.load(Display.class);
-        Iterator<Display> iterator = loader.iterator();
-        while (iterator.hasNext()){
-            Display next = iterator.next();
-            map.put(next.getClass().getName(), next);
-        }
         for (Display display : loader) {
             map.put(display.getClass().getName(), display);
         }
