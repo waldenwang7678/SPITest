@@ -32,4 +32,6 @@ dependencies {
     compile project(':moduleb')
     //    compile project(':common')
     compile project(':common')
+
+    compile 'com.walden.appupdate:appupdate:0.1.0'
 }
